@@ -1,6 +1,4 @@
-package quantitymeasurement;
-
-import java.util.Objects;
+package quantitymeasurementtest;
 
 public class Feet {
     private final double value;
