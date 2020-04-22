@@ -72,13 +72,12 @@ public class QuantityTest {
         Length inch2 = new Length(1.1, Length.Unit.INCH);
         Assert.assertNotEquals(inch1, inch2);
     }
+
     @Test
-    public void givenZeroInchAndZeroFeet_ShouldReturnTrue(){
+    public void givenZeroInchAndZeroFeet_ShouldReturnTrue() {
         Length inch1 = new Length(0.0, Length.Unit.INCH);
         Length feet1 = new Length(0.0, Length.Unit.FEET);
         Assert.assertEquals(inch1, feet1);
 
     }
-
-
 }
