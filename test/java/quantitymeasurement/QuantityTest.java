@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class QuantityTest {
+
     @Test
     public void given0FeetAnd0Feet_ShouldReturnEqual() {
         Length feet1 = new Length(0.0, Length.Unit.FEET);
@@ -37,6 +38,7 @@ public class QuantityTest {
         Length feet2 = new Length(1.0, Length.Unit.FEET);
         Assert.assertNotEquals(feet1, feet2);
     }
+
     @Test
     public void given0InchAnd0Inch_ShouldReturnEqual() {
         Length inch1 = new Length(0.0, Length.Unit.INCH);
@@ -58,17 +60,25 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenCheckTypeFeetAndInch_ShouldReturnNotEqual() {
-        Length inch1 = new Length(0.0, Length.Unit.INCH);
-        Length feet1 = new Length(0.1, Length.Unit.FEET);
-        Assert.assertNotEquals(inch1, feet1);
+    public void givenCheckTypeFeetAndInch_ShouldReturnEqual() {
+        Length inch1 = new Length(1.0, Length.Unit.INCH);
+        Length feet1 = new Length(1.0, Length.Unit.FEET);
+        Assert.assertEquals(inch1, feet1);
     }
 
     @Test
-    public void given0FeetAnd1FeetSameEquality_shouldReturnNotEqual() {
-        Length inch1 = new Length(0.0, Length.Unit.INCH);
-        Length inch2 = new Length(1.0, Length.Unit.INCH);
+    public void given1InchAnd1FeetSameEquality_shouldReturnNotEqual() {
+        Length inch1 = new Length(1.0, Length.Unit.INCH);
+        Length inch2 = new Length(1.1, Length.Unit.INCH);
         Assert.assertNotEquals(inch1, inch2);
     }
+    @Test
+    public void givenZeroInchAndZeroFeet_ShouldReturnTrue(){
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Length feet1 = new Length(0.0, Length.Unit.FEET);
+        Assert.assertEquals(inch1, feet1);
+
+    }
+
 
 }
