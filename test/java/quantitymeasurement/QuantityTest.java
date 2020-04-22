@@ -120,7 +120,6 @@ public class QuantityTest {
         Length feet1 = new Length(1.0, Length.Unit.FEET);
         boolean compareCheck = inch1.compare(feet1);
         Assert.assertTrue(compareCheck);
-
     }
 }
 
