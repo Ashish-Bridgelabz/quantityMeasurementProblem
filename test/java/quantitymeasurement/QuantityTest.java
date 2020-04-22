@@ -12,13 +12,6 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0FeetAnd1Feet_ShouldReturnNotEqual() {
-        Length feet1 = new Length(0.0, Length.Unit.FEET);
-        Length feet2 = new Length(1.0, Length.Unit.FEET);
-        Assert.assertNotEquals(feet1, feet2);
-    }
-
-    @Test
     public void givenOneNullObject_ShouldReturnFalse() {
         Length feet1 = new Length(0.0, Length.Unit.FEET);
         Length feet2 = null;
@@ -26,7 +19,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenSameReferenceToLength_ShouldReturnTrue() {
+    public void givenSameReferenceToObject_ShouldReturnTrue() {
         Length feet1 = new Length(0.0, Length.Unit.FEET);
         Assert.assertEquals(feet1, feet1);
     }
@@ -44,4 +37,38 @@ public class QuantityTest {
         Length feet2 = new Length(1.0, Length.Unit.FEET);
         Assert.assertNotEquals(feet1, feet2);
     }
+    @Test
+    public void given0InchAnd0Inch_ShouldReturnEqual() {
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Length inch2 = new Length(0.0, Length.Unit.INCH);
+        Assert.assertEquals(inch1, inch2);
+    }
+
+    @Test
+    public void givenOneNullObjectValue_ShouldReturnFalse() {
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Length inch2 = null;
+        Assert.assertNotEquals(inch1, inch2);
+    }
+
+    @Test
+    public void givenSameReferenceOfObjecth_ShouldReturnTrue() {
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Assert.assertEquals(inch1, inch1);
+    }
+
+    @Test
+    public void givenCheckTypeFeetAndInch_ShouldReturnNotEqual() {
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Length feet1 = new Length(0.1, Length.Unit.FEET);
+        Assert.assertNotEquals(inch1, feet1);
+    }
+
+    @Test
+    public void given0FeetAnd1FeetSameEquality_shouldReturnNotEqual() {
+        Length inch1 = new Length(0.0, Length.Unit.INCH);
+        Length inch2 = new Length(1.0, Length.Unit.INCH);
+        Assert.assertNotEquals(inch1, inch2);
+    }
+
 }
