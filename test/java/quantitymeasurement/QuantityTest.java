@@ -188,19 +188,38 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenOneGallonAndOneLitreValue_IfEqual_ShouldReturnTrue() throws QuantityMeasurementException {
+    public void givenOneGallonAnd3Point78LitresValue_IfEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         Length firstValue = new Length(1.0, UnitMeasurements.GALLON);
         Length secondValue = new Length(3.78, UnitMeasurements.LITRES);
         boolean result = quantityMeasurement.compare(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
+
     @Test
-    public void given1LitreAnd1000Ml_shouldReturnEqual()throws QuantityMeasurementException{
+    public void given1LitreAnd1000Ml_shouldReturnEqual() throws QuantityMeasurementException {
         Length firstValue = new Length(1.0, UnitMeasurements.LITRES);
         Length secondValue = new Length(1000.0, UnitMeasurements.MILLILITERS);
         boolean result = quantityMeasurement.compare(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
+    @Test
+    public void givenOneGallonAn3Point78LitresValue_IfEqual_ShouldReturn() throws QuantityMeasurementException {
+        Length firstValue = new Length(1.0, UnitMeasurements.GALLON);
+        Length secondValue = new Length(3.78, UnitMeasurements.LITRES);
+        Double result = quantityMeasurement.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(7.56, result, 0.0);
+    }
+
+    @Test
+    public void givenOneLiterAnd1000Milileters_IfEqual_ShouldReturn() throws QuantityMeasurementException {
+        Length firstValue = new Length(1.0, UnitMeasurements.LITRES);
+        Length secondValue = new Length(1000.0, UnitMeasurements.MILLILITERS);
+        Double result = quantityMeasurement.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(2.0, result, 0.0);
+    }
+
 }
+
+
 
