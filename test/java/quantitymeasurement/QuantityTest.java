@@ -165,5 +165,20 @@ public class QuantityTest {
         boolean compareCheck = UnitMeasurementS.compare(value2, value1);
         Assert.assertTrue(compareCheck);
     }
+    @Test
+    public void given2InchAnd5Centimeter_ShouldReturnTrue(){
+        Length value1 = new Length(UnitMeasurementS.INCH,2.0);
+        Length value2 = new Length(UnitMeasurementS.CENTIMETER,5.0);
+        boolean compareCheck = UnitMeasurementS.compare(value2, value1);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void givenTwoInchValues_WhenAdded_ShouldReturnResultInInch(){
+        Length value1 = new Length(UnitMeasurementS.INCH,2.0);
+        Length value2 = new Length(UnitMeasurementS.INCH,2.0);
+         Double result = UnitMeasurementS.addTwoLengths(value2, value1);
+        Assert.assertEquals(4.0,result,0.0);
+    }
 }
 
