@@ -1,5 +1,6 @@
 package quantitymeasurement;
 
+import junit.framework.AssertionFailedError;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -219,7 +220,34 @@ public class QuantityTest {
         Assert.assertEquals(2.0, result, 0.0);
     }
 
+    @Test
+    public void givenOneKiloGramValueAnd1000Gram_IfEqual_ShouldReturnTrue() throws QuantityMeasurementException {
+        Length firstValue = new Length(1.0, UnitMeasurements.KILOGRAMS);
+        Length secondValue = new Length(1000.0, UnitMeasurements.GRAMS);
+        boolean result = quantityMeasurement.compare(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenOneTonneAnd1000KG_IfEqual_ShouldReturnTrue() throws QuantityMeasurementException {
+        Length firstValue = new Length(1.0, UnitMeasurements.TONNE);
+        Length secondValue = new Length(1000.0, UnitMeasurements.KILOGRAMS);
+        boolean result = quantityMeasurement.compare(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void given1000TonneAnd1000Gram_IfEqual_ShouldReturEqual() throws QuantityMeasurementException {
+        Length firstValue = new Length(1.0, UnitMeasurements.TONNE);
+        Length secondValue = new Length(1000.0, UnitMeasurements.GRAMS);
+        Double result = quantityMeasurement.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(1001, result, 0.0);
+
+    }
+
 }
+
+
 
 
 
